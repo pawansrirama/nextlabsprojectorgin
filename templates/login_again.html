@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-12 text-center bg-secondary">
+<h1>Invalid Credentials</h1>
+</div>
+<br><br><br><br>
+<div class="col-md-12 text-center bg-white">
+<h2>Try login again</h2>
+<a href="{% url 'admin_login' %}"><button type="button" class="btn btn-dark  btn-block" style="min-width: 150px;">Sign In</button></a>
+</div>
+{% endblock content %}

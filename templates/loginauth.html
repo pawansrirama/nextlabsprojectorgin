@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ 
+
+<!-- Our project just needs Font Awesome Free's Solid and Brand files -->
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+
+
+ <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+
+ <title>Admin</title>
+</head>
+<body>
+    <div class="container mb-5">
+    <h1 class="alert-danger text-center p-6">Hello Admin</h1>
+    <a href="{% url 'user_login' %}"><button type="submit" class="btn btn-success col-md-1">Home</button></a>
+    <button type="submit" class="btn btn-success col-md-1.5">Add Apps</button>
+    <div class="row" >
+    <div class="col-md-11 offset-md-3" >
+    <form action="" method="post" enctype="multipart/form-data" class="shadow p-5">
+     {% csrf_token %}
+        <div class="container">
+            <div class="col-md-6 mx-auto">
+                <label for="{{ form.image.id_for_label }}">
+                <img src="https://media.istockphoto.com/id/1050816926/vector/download-document-link.jpg?s=1024x1024&w=is&k=20&c=VWf9vT3fa2Ryv-s4dfrsg_5DD8GqLK2RA1XeDKzMFR4=" alt="img" width="200" height="200">
+                </label>
+                <div style="display: none">{{ form.image }}</div>
+            </div>
+        </div>
+
+        <br><br>
+        <div class="row">
+            <div class="col-md-6">   
+                {{ form.app_name }}
+                
+            </div>
+            <div class="col-md-6">
+                {{ form.app_link }}
+            </div>
+            <br><br><br>
+            <div class="col-md-6" >
+                {{ form.app_category }}
+            </div>
+            <div class="col-md-6">
+                {{ form.sub_category}}
+            </div>
+        </div>
+        <br>
+            <div class="col-md-6 mx-auto" style="font-size: 18px;border-radius: 10px;padding: 10px;">
+                {{ form.points_amount }}
+            </div>
+
+        <br>
+            <div class="col-md-6 mx-auto">
+            <input type="submit" value="Submit" class="btn btn-success col-md-6">
+            </div>
+    </form>
+   </div>
+  </div>
+ </div>
+
+ 
+<footer class="page-footer font-small red ">
+    <div class="footer-copyright text-center py-3">&copy; 2020 Copyright:
+        <a href="http://localhost:8000">Home</a>
+        <a class="ml-3" href="{% url 'admin_login'%}">Admin Login</a>
+    </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   <i class="fa-solid fa-user-chef"></i> <!-- uses solid style -->
+    <i class="fa-brands fa-github-square"></i> <!-- uses brand style -->
+</body>
+</html>
